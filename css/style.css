@@ -1,0 +1,258 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    /* Elimina los márgenes y el relleno de todos los elementos para un diseño más consistente. El 'box-sizing' 
+    asegura que el tamaño de los elementos se calcule incluyendo el padding y border. */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    overflow: hidden;
+    background-color: #afaeae
+    /* Color gris claro para el fondo general */
+    /* Establece la fuente global del cuerpo con 'Poppins'. Oculta el scroll
+     ('overflow: hidden') y aplica un color de fondo gris claro. */
+}
+
+.wave {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: -1; /* Asegura que esté debajo de todo */
+    /* Establece un fondo decorativo en forma de 'ola' que cubre toda la pantalla 
+    y se fija en la parte inferior. Se usa un z-index negativo para que quede detrás de los demás elementos. */
+}
+
+.contenedor {
+    width: 100vw;
+    height: 100vh;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 7rem;
+    padding: 0 2rem;
+    /* Define un contenedor que ocupa toda la pantalla y utiliza el 
+    sistema de grid con 2 columnas iguales, separadas por un espacio de 7rem. */
+}
+
+.img {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    
+}
+
+.contenido-login {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    padding-top: 3rem; /* Añadido para dar espacio al logo */
+    /* Sección donde estará el contenido del login, centrado en el eje vertical y horizontal. 
+    Utiliza 'flex' para el diseño y aplica un relleno superior. */
+}
+.img img{
+    width: 500px;
+
+}
+
+.contenido-login img {
+    height: 120px;
+    margin-bottom: 1rem; /* Espacio entre el logo y el formulario */
+    /* Define el tamaño del logo dentro de la sección de login y añade un margen inferior para 
+    separarlo del formulario. */
+
+}
+
+form {
+    width: 360px;
+    background-color: #fff;
+    padding: 2rem;
+    border-radius: 10px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    /* Estilo del formulario: tamaño fijo, fondo blanco, esquinas redondeadas, 
+    y sombra para dar sensación de elevación. */
+}
+
+.contenido-login h2 {
+    margin: 15px 0;
+    color: #333;
+    text-transform: uppercase;
+    font-size: 2.9rem;
+    /* Título del formulario, con color gris oscuro, texto en mayúsculas y tamaño de fuente grande. */
+}
+
+.contenido-login .input-div {
+    position: relative;
+    display: grid;
+    grid-template-columns: 7% 93%;
+    margin: 25px 0;
+    padding: 5px 0;
+    border-bottom: 2px solid #203b18; /* Verde oscuro */
+    /* Diseño de los contenedores de los campos de entrada (input). 
+    Se dividen en dos columnas: una pequeña para íconos y otra grande para el campo de texto. */
+}
+
+.contenido-login .input-div.dni {
+    margin-top: 0;
+}
+
+.i {
+    color: #24521f; /* Verde oscuro para los iconos */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.i i {
+    transition: .3s;
+}
+
+.input-div > div {
+    position: relative;
+    height: 45px;
+}
+
+.input-div > div > h5 {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #5c5a5a;
+    font-size: 18px;
+    transition: .3s;
+    pointer-events: none; /* Deshabilita la interacción con el texto */
+}
+
+.input-div.focus > div > h5, /* Texto desaparece cuando está enfocado */
+.input-div > div > input:not(:placeholder-shown) + h5 {
+    display: none;
+}
+
+.input-div:before,
+.input-div:after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    width: 0%;
+    height: 2px;
+    background-color: #3a6835; /* Verde oscuro */
+    transition: .4s;
+}
+
+.input-div::before {
+    right: 50%;
+}
+
+.input-div::after {
+    left: 50%;
+}
+
+.input-div.focus:before,
+.input-div.focus:after {
+    width: 50%;
+}
+
+.input-div.focus > .i > i {
+    color: #265a21; /* Verde oscuro cuando está activo */
+}
+
+.input-div > div > input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    border: none;
+    outline: none;
+    background: none;
+    padding: 0.5rem 0.7rem;
+    font-size: 1.2rem;
+    color: #555;
+    font-family: 'Poppins', sans-serif;
+}
+
+.input-div.pass {
+    margin-bottom: 4px;
+}
+
+a {
+    display: block;
+    text-align: right;
+    text-decoration: none;
+    color: #363636;
+    font-size: 0.9rem;
+}
+
+a:hover {
+    color: #193114; /* Cambia el color del hover al verde oscuro */
+}
+
+.btn {
+    display: block;
+    width: 100%;
+    height: 50px;
+    border-radius: 25px;
+    outline: none;
+    border: none;
+    background-image: linear-gradient(to right, #2b5725, #4e992b); /* Gradiente verde oscuro a verde más claro */
+    background-size: 200%;
+    font-size: 1.2rem;
+    color: #fff;
+    font-family: 'Poppins', sans-serif;
+    text-transform: uppercase;
+    margin: 1rem 0;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.btn:hover {
+    background-position: right;
+}
+
+/* Agregado: aumentar el tamaño del texto en los campos al hacer hover */
+.input-div:hover > div > h5 {
+    font-size: 20px;
+    color: #1d6322; /* Color verde oscuro */
+}
+
+/*responsive para tablets y celulares*/
+/*tablets*/
+@media screen and (max-width: 1050px) {
+    .contenedor {
+        grid-gap: 5rem;
+    }
+}
+
+/*tablet más pequeña*/
+@media screen and (max-width: 1000px) {
+    form {
+        width: 290px;
+    }
+    .contenido-login h2 {
+        font-size: 2.4rem;
+        margin: 8px 0;
+    }
+    .img img {
+        width: 400px;
+    }
+}
+
+/*celulares*/
+@media screen and (max-width: 900px) {
+    .contenedor {
+        grid-template-columns: 1fr;
+    }
+    .img {
+        display: none;
+    }
+    .wave {
+        display: none;
+    }
+    .contenido-login {
+        justify-content: center;
+    }
+}
